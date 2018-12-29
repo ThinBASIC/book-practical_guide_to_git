@@ -1,0 +1,5 @@
+[book]
+authors = ["petrSchreiber"]
+multilingual = false
+src = "src"
+title = "Practical guide to Git"
