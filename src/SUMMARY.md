@@ -1,3 +1,15 @@
 # Practical guide to Git
 
 - [Introduction](./introduction.md)
+- [Core concepts](./core_concepts.md)
+    - [Repository](./repository.md)
+    - [Fork](./fork.md)    
+    - [Remote](./remote.md)
+    - [Commit](./commit.md)
+    - [Branch](./branch.md)
+    - [Push](./push.md)
+    - [Fetch](./fetch.md)
+    - [Merge](./merge.md)
+    - [Rebase](./rebase.md)
+    - [Pull](./pull.md)
+    - [Pull request](./pull_request.md)
