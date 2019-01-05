@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - Practical guide to Git</title>
+        <title>Fetch - Practical guide to Git</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +72,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="core_concepts.html"><strong aria-hidden="true">2.</strong> Core concepts</a></li><li><ol class="section"><li><a href="repository.html"><strong aria-hidden="true">2.1.</strong> Repository</a></li><li><a href="fork.html"><strong aria-hidden="true">2.2.</strong> Fork</a></li><li><a href="remote.html"><strong aria-hidden="true">2.3.</strong> Remote</a></li><li><a href="commit.html"><strong aria-hidden="true">2.4.</strong> Commit</a></li><li><a href="branch.html"><strong aria-hidden="true">2.5.</strong> Branch</a></li><li><a href="push.html"><strong aria-hidden="true">2.6.</strong> Push</a></li><li><a href="fetch.html"><strong aria-hidden="true">2.7.</strong> Fetch</a></li><li><a href="merge.html"><strong aria-hidden="true">2.8.</strong> Merge</a></li><li><a href="rebase.html"><strong aria-hidden="true">2.9.</strong> Rebase</a></li><li><a href="pull.html"><strong aria-hidden="true">2.10.</strong> Pull</a></li><li><a href="pull_request.html"><strong aria-hidden="true">2.11.</strong> Pull request</a></li></ol></li></ol>
+            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="core_concepts.html"><strong aria-hidden="true">2.</strong> Core concepts</a></li><li><ol class="section"><li><a href="repository.html"><strong aria-hidden="true">2.1.</strong> Repository</a></li><li><a href="fork.html"><strong aria-hidden="true">2.2.</strong> Fork</a></li><li><a href="remote.html"><strong aria-hidden="true">2.3.</strong> Remote</a></li><li><a href="commit.html"><strong aria-hidden="true">2.4.</strong> Commit</a></li><li><a href="branch.html"><strong aria-hidden="true">2.5.</strong> Branch</a></li><li><a href="push.html"><strong aria-hidden="true">2.6.</strong> Push</a></li><li><a href="fetch.html" class="active"><strong aria-hidden="true">2.7.</strong> Fetch</a></li><li><a href="merge.html"><strong aria-hidden="true">2.8.</strong> Merge</a></li><li><a href="rebase.html"><strong aria-hidden="true">2.9.</strong> Rebase</a></li><li><a href="pull.html"><strong aria-hidden="true">2.10.</strong> Pull</a></li><li><a href="pull_request.html"><strong aria-hidden="true">2.11.</strong> Pull request</a></li></ol></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -136,39 +136,52 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
-<p>The primary goal of this book is to introduce you, thinBasic developer, to the concept of Git in connection with GitHub.</p>
-<p>The secondary goal is to set some boundaries and common practices for Git interaction across our growing community.</p>
-<p>No previous knowledge of Git is expected or required in order to read this book.</p>
-<p>All opinions expressed in this book are a view of the author, who has 5-year experience with Git. This is not an official Git guide.</p>
-<p>This book is practically oriented on the common day-to-day tasks. Once you get confident with them and understand the benefits of Git for them, further study of Git is highly encouraged.</p>
+                        <a class="header" href="#fetch" id="fetch"><h2>Fetch</h2></a>
+<p>The operation to make your Git aware of the changes in the <em>remote</em> repository.</p>
+<a class="header" href="#example" id="example"><h3>Example</h3></a>
+<p>Imagine you have 1 local repository with 1 <a href="/remote.html">remote</a> repository, referenced as <code>origin</code>.</p>
+<p>Both the local repository contains the <em>&quot;Initial commit&quot;</em> in the <code>[master]</code> branch.</p>
+<pre><code>
+o &quot;Initial commit&quot; [master][origin/master]    o &quot;Initial commit&quot; [master]
+(local)                                       (origin)
+
+</code></pre>
+<p>Then, some other collaborator updates the remote repository:</p>
+<pre><code>
+o &quot;Initial commit&quot; [master]                    o &quot;Initial commit&quot; [master]
+(local)                                        (origin)
+
+</code></pre>
+<p>What? What change?</p>
+<p>If you would like to <em>see</em> the change, you first need to make your Git aware of changes in the remote repository.</p>
+<p>How to do it?</p>
+<p>Fetch!</p>
+<pre><code>
+                                               o &quot;New feature 1&quot;  [feature1]
+                                               |
+o &quot;Initial commit&quot; [master][origin/master]     o &quot;Initial commit&quot; [master]
+(local)                                        (origin)
+
+</code></pre>
+<p>Once you do this, you have an idea about what was the state of the remote repository at the time of fetch:</p>
 <blockquote>
-<p><em>This book is currently work-in-progress</em></p>
+<p>Please note fetching does not update your local repository with the remote changes. You have to <a href="./pull.html">pull</a> to sync!</p>
 </blockquote>
-<a class="header" href="#what-do-i-gain-learning-git" id="what-do-i-gain-learning-git"><h2>What do I gain learning Git?</h2></a>
-<p>Using Git through your development will allow you the following:</p>
-<ul>
-<li>track changes from the start of the project till its current state</li>
-<li>compare changes, line-by-line, between two versions of the code</li>
-<li>work on multiple variants without the need for crazy copy-paste</li>
-<li>feel more confident during bigger changes, because you can always safely go back</li>
-<li>collaborate on single code with others in a standardized, organized way</li>
-<li>have code accessible anywhere, because it can be stored in the cloud</li>
-</ul>
-<p>Git is a version control system which became the de-facto standard, used by both individuals, developers of operating systems and big companies.</p>
-<p>By learning Git, you learn a tool which you can re-use with different languages and in different situations.</p>
-<a class="header" href="#what-is-github" id="what-is-github"><h2>What is GitHub?</h2></a>
-<p>GitHub is one of the providers of storage for the Git data. There are many alternatives, such as GitLab, SourceForge or Stash.</p>
-<p>GitHub is chosen as a single example for this book, for the purpose of simplicity, while providing free accounts for your experiments.</p>
-<a class="header" href="#how-to-read-this-book" id="how-to-read-this-book"><h2>How to read this book?</h2></a>
-<p>This book is written in a goal-oriented fashion. The best way to get the most out of this book is to start applying what you read immediately, even if on a dummy project.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
+                            <a rel="prev" href="push.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
 
+                        
+                            <a rel="next" href="merge.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -178,7 +191,15 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
+                    <a href="push.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
 
+                
+                    <a href="merge.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
