@@ -1,4 +1,4 @@
-# Practical guid to Git
+# Practical guide to Git
 
 Practical guide to Git for thinBasic developers.
 
