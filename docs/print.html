@@ -1,24 +1,42 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Practical guide to Git</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
+        
         <link rel="stylesheet" href="css/print.css" media="print">
+        
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -30,9 +48,12 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">var path_to_root = "";</script>
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script type="text/javascript">
@@ -53,10 +74,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
-            if (theme === null || theme === undefined) { theme = 'light'; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -72,43 +96,48 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><a href="core_concepts.html"><strong aria-hidden="true">2.</strong> Core concepts</a></li><li><ol class="section"><li><a href="repository.html"><strong aria-hidden="true">2.1.</strong> Repository</a></li><li><a href="fork.html"><strong aria-hidden="true">2.2.</strong> Fork</a></li><li><a href="remote.html"><strong aria-hidden="true">2.3.</strong> Remote</a></li><li><a href="commit.html"><strong aria-hidden="true">2.4.</strong> Commit</a></li><li><a href="branch.html"><strong aria-hidden="true">2.5.</strong> Branch</a></li><li><a href="push.html"><strong aria-hidden="true">2.6.</strong> Push</a></li><li><a href="fetch.html"><strong aria-hidden="true">2.7.</strong> Fetch</a></li><li><a href="merge.html"><strong aria-hidden="true">2.8.</strong> Merge</a></li><li><a href="rebase.html"><strong aria-hidden="true">2.9.</strong> Rebase</a></li><li><a href="pull.html"><strong aria-hidden="true">2.10.</strong> Pull</a></li><li><a href="pull_request.html"><strong aria-hidden="true">2.11.</strong> Pull request</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="core_concepts.html"><strong aria-hidden="true">2.</strong> Core concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="repository.html"><strong aria-hidden="true">2.1.</strong> Repository</a></li><li class="chapter-item expanded "><a href="fork.html"><strong aria-hidden="true">2.2.</strong> Fork</a></li><li class="chapter-item expanded "><a href="remote.html"><strong aria-hidden="true">2.3.</strong> Remote</a></li><li class="chapter-item expanded "><a href="commit.html"><strong aria-hidden="true">2.4.</strong> Commit</a></li><li class="chapter-item expanded "><a href="branch.html"><strong aria-hidden="true">2.5.</strong> Branch</a></li><li class="chapter-item expanded "><a href="push.html"><strong aria-hidden="true">2.6.</strong> Push</a></li><li class="chapter-item expanded "><a href="fetch.html"><strong aria-hidden="true">2.7.</strong> Fetch</a></li><li class="chapter-item expanded "><a href="merge.html"><strong aria-hidden="true">2.8.</strong> Merge</a></li><li class="chapter-item expanded "><a href="rebase.html"><strong aria-hidden="true">2.9.</strong> Rebase</a></li><li class="chapter-item expanded "><a href="pull.html"><strong aria-hidden="true">2.10.</strong> Pull</a></li><li class="chapter-item expanded "><a href="pull_request.html"><strong aria-hidden="true">2.11.</strong> Pull request</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Practical guide to Git</h1> 
+                    <h1 class="menu-title">Practical guide to Git</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                        </div>
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
                     </div>
                 </div>
 
@@ -136,7 +165,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#introduction" id="introduction"><h1>Introduction</h1></a>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
 <p>The primary goal of this book is to introduce you, thinBasic developer, to the concept of Git in connection with GitHub.</p>
 <p>The secondary goal is to set some boundaries and common practices for Git interaction across our growing community.</p>
 <p>No previous knowledge of Git is expected or required in order to read this book.</p>
@@ -145,24 +174,24 @@
 <blockquote>
 <p><em>This book is currently work-in-progress</em></p>
 </blockquote>
-<a class="header" href="#what-do-i-gain-learning-git" id="what-do-i-gain-learning-git"><h2>What do I gain learning Git?</h2></a>
+<h2><a class="header" href="#what-do-i-gain-learning-git" id="what-do-i-gain-learning-git">What do I gain learning Git?</a></h2>
 <p>Using Git through your development will allow you the following:</p>
 <ul>
 <li>track changes from the start of the project till its current state</li>
 <li>compare changes, line-by-line, between two versions of the code</li>
-<li>work on multiple variants without the need for crazy copy-paste</li>
+<li>work on multiple variants without the need for crazy copy-paste </li>
 <li>feel more confident during bigger changes, because you can always safely go back</li>
 <li>collaborate on single code with others in a standardized, organized way</li>
 <li>have code accessible anywhere, because it can be stored in the cloud</li>
 </ul>
 <p>Git is a version control system which became the de-facto standard, used by both individuals, developers of operating systems and big companies.</p>
 <p>By learning Git, you learn a tool which you can re-use with different languages and in different situations.</p>
-<a class="header" href="#what-is-github" id="what-is-github"><h2>What is GitHub?</h2></a>
+<h2><a class="header" href="#what-is-github" id="what-is-github">What is GitHub?</a></h2>
 <p>GitHub is one of the providers of storage for the Git data. There are many alternatives, such as GitLab, SourceForge or Stash.</p>
 <p>GitHub is chosen as a single example for this book, for the purpose of simplicity, while providing free accounts for your experiments.</p>
-<a class="header" href="#how-to-read-this-book" id="how-to-read-this-book"><h2>How to read this book?</h2></a>
+<h2><a class="header" href="#how-to-read-this-book" id="how-to-read-this-book">How to read this book?</a></h2>
 <p>This book is written in a goal-oriented fashion. The best way to get the most out of this book is to start applying what you read immediately, even if on a dummy project.</p>
-<a class="header" href="#core-concepts" id="core-concepts"><h1>Core concepts</h1></a>
+<h1><a class="header" href="#core-concepts" id="core-concepts">Core concepts</a></h1>
 <p>This chapter explains the core concepts of the Git world.</p>
 <p><a href="./repository.html">Repository</a> - what repository is, for what it should and shouldn't be used and how to configure it.</p>
 <p><a href="./fork.html">Fork</a> - clone of an already existing repository.</p>
@@ -175,9 +204,9 @@
 <p><a href="./rebase.html">Rebase</a> - explains how to keep branches up to date with the base branch.</p>
 <p><a href="./pull.html">Pull</a> - explains the operation of syncing the local repository with the remote.</p>
 <p><a href="./pull.html">Pull request</a> - explains the concept of change proposal.</p>
-<a class="header" href="#repository" id="repository"><h2>Repository</h2></a>
+<h2><a class="header" href="#repository" id="repository">Repository</a></h2>
 <p>Git repository is a directory, containing your project or its subpart.</p>
-<a class="header" href="#scope" id="scope"><h3>Scope</h3></a>
+<h3><a class="header" href="#scope" id="scope">Scope</a></h3>
 <p>A repository should be used for a single project, or better, its smallest functional part.</p>
 <p>To give a specific example - thinBasic consists of an interpreter, many modules, thinAir integrated development environment, and help file.</p>
 <p>While one could be tempted to have it all in a single repository, it would have the following issues:</p>
@@ -192,25 +221,25 @@
 <li>thinAir</li>
 <li>help file</li>
 </ul>
-<a class="header" href="#system-files" id="system-files"><h3>System files</h3></a>
+<h3><a class="header" href="#system-files" id="system-files">System files</a></h3>
 <p>Compared to a standard system directory, a repository contains:</p>
 <ul>
 <li>hidden <code>.git</code> directory, which is created by Git and contains the history of changes of your project</li>
 <li>git configuration files, if needed</li>
 </ul>
 <p>A repository should also contain readme, license and adhere to some normalized structure. This will be discussed in the practical part.</p>
-<a class="header" href="#technical-restrictions" id="technical-restrictions"><h3>Technical restrictions</h3></a>
+<h3><a class="header" href="#technical-restrictions" id="technical-restrictions">Technical restrictions</a></h3>
 <p>The Git repositories are optimized to work with text data, which makes them <strong>ideal for storing source code</strong>. Git allows to display changes between any two revisions of text data and store the history of changes efficiently.</p>
 <p>While it is technically possible to add <strong>binary files</strong> to the repository, such as EXE/DLL files, PDF documents, and other common file formats, please be aware of the fact that this <strong>might significantly increase the size of your repository</strong>. The history of text files is stored via difference between two versions, however, each change in the binary file is stored as a new copy.</p>
-<a class="header" href="#fork" id="fork"><h2>Fork</h2></a>
+<h2><a class="header" href="#fork" id="fork">Fork</a></h2>
 <p>The fork is a clone of an already existing repository.</p>
-<a class="header" href="#when-is-this-needed" id="when-is-this-needed"><h3>When is this needed?</h3></a>
+<h3><a class="header" href="#when-is-this-needed" id="when-is-this-needed">When is this needed?</a></h3>
 <p>Usually, when you join existing projects, you don't have the right to modify them directly.</p>
 <p>By creating a fork, a clone of the original, you may start working on your own version or create changes in the fork and propose them to the original repository via so-called <em>pull requests</em>.</p>
 <p>You will not need to create a fork when working on your own project alone.</p>
-<a class="header" href="#remote" id="remote"><h2>Remote</h2></a>
+<h2><a class="header" href="#remote" id="remote">Remote</a></h2>
 <p>Pointer to the remote repository on the server.</p>
-<a class="header" href="#why-is-it-good" id="why-is-it-good"><h3>Why is it good?</h3></a>
+<h3><a class="header" href="#why-is-it-good" id="why-is-it-good">Why is it good?</a></h3>
 <p>Linking your local Git repository with remote allows you to:</p>
 <ul>
 <li>backup your source code on the server</li>
@@ -219,7 +248,7 @@
 </ul>
 <p>For the purpose of this book, the remote repository will be a repository on the GitHub.</p>
 <p>This will allow you to work on the same project from any PC with an Internet connection.</p>
-<a class="header" href="#one-or-many" id="one-or-many"><h3>One or many?</h3></a>
+<h3><a class="header" href="#one-or-many" id="one-or-many">One or many?</a></h3>
 <p>Remote repository and remote are two different terms.</p>
 <p>Typically, for your private projects, you will have one remote, called always <code>origin</code>, does not matter how the remote repository is really named.</p>
 <p>Should you work on <a href="./fork.html">fork</a> of an existing project, you will have two remotes:</p>
@@ -227,11 +256,11 @@
 <li><code>origin</code>, which is your remote forked version</li>
 <li><code>upstream</code>, which is the original repository from which you forked</li>
 </ul>
-<a class="header" href="#commit" id="commit"><h2>Commit</h2></a>
+<h2><a class="header" href="#commit" id="commit">Commit</a></h2>
 <p>A single set of changes.</p>
-<a class="header" href="#what-can-it-contain" id="what-can-it-contain"><h3>What can it contain?</h3></a>
+<h3><a class="header" href="#what-can-it-contain" id="what-can-it-contain">What can it contain?</a></h3>
 <p>A single commit might contain addition and/or modification and/or removal of files.</p>
-<a class="header" href="#how-does-it-work" id="how-does-it-work"><h3>How does it work?</h3></a>
+<h3><a class="header" href="#how-does-it-work" id="how-does-it-work">How does it work?</a></h3>
 <p>Imagine a repository with two commits:</p>
 <ul>
 <li>the first commit adds files <code>a.txt</code> and <code>b.txt</code>.</li>
@@ -239,26 +268,26 @@
 </ul>
 <p>The repository now contains modified <code>b.txt</code> and <code>c.txt</code>. If you want, you can go back in time to the first commit - anytime. And without losing the ability to travel back to the last commit again.</p>
 <p>Time travel is made possible thanks to the <code>.git</code> directory, which contains the history of changes in an efficient format.</p>
-<a class="header" href="#how-can-i-reference-specific-commit" id="how-can-i-reference-specific-commit"><h3>How can I reference specific commit?</h3></a>
+<h3><a class="header" href="#how-can-i-reference-specific-commit" id="how-can-i-reference-specific-commit">How can I reference specific commit?</a></h3>
 <p>Each commit has so-called commit hash. It is unique across the repository.</p>
 <p>Each commit has also a commit message, which is a brief summary of changes specified by you.</p>
 <p>Commit messages are referenced in this book like: <em>&quot;Commit message&quot;</em></p>
-<a class="header" href="#branch" id="branch"><h2>Branch</h2></a>
+<h2><a class="header" href="#branch" id="branch">Branch</a></h2>
 <p>Unit of the organization in a repository, basically a pointer to a commit.</p>
 <p>Branches are indicated in brackets in this book: <code>[branch]</code></p>
-<a class="header" href="#master-branch" id="master-branch"><h3><em>Master</em> branch</h3></a>
+<h3><a class="header" href="#master-branch" id="master-branch"><em>Master</em> branch</a></h3>
 <p>The branch present in any new repository is called <em>master</em>.</p>
 <blockquote>
 <p><code>[master]</code> should not contain work in progress code. It should be used for storing the finished version of the code for a given application/solution version.</p>
 </blockquote>
-<a class="header" href="#additional-branches" id="additional-branches"><h3>Additional branches</h3></a>
+<h3><a class="header" href="#additional-branches" id="additional-branches">Additional branches</a></h3>
 <p>Any new modifications - features, fixes, refactoring, documentation adjustments or tests - should be developed in separate branches, before promoting them to <code>[master]</code>.</p>
 <blockquote>
 <p>Unlike <code>[master]</code>, it is perfectly fine if the branch contains work in progress code.</p>
 </blockquote>
-<a class="header" href="#push" id="push"><h2>Push</h2></a>
+<h2><a class="header" href="#push" id="push">Push</a></h2>
 <p>The process of moving changes from your local repository to <a href="./remote.html">remote</a> repository.</p>
-<a class="header" href="#example" id="example"><h3>Example</h3></a>
+<h3><a class="header" href="#example" id="example">Example</a></h3>
 <p>Imagine you have 1 local repository with 1 <a href="/remote.html">remote</a> repository, referenced as <code>origin</code>.</p>
 <p>Both the local repository contains the &quot;Initial commit&quot; in the <code>[master]</code> branch.</p>
 <pre><code>
@@ -286,9 +315,9 @@ o &quot;Initial commit&quot; [master][origin/master]     o &quot;Initial commit&
 
 </code></pre>
 <p>After the push, both repositories are in sync for the given branch.</p>
-<a class="header" href="#fetch" id="fetch"><h2>Fetch</h2></a>
+<h2><a class="header" href="#fetch" id="fetch">Fetch</a></h2>
 <p>The operation to make your Git aware of the changes in the <em>remote</em> repository.</p>
-<a class="header" href="#example-1" id="example-1"><h3>Example</h3></a>
+<h3><a class="header" href="#example-1" id="example-1">Example</a></h3>
 <p>Imagine you have 1 local repository with 1 <a href="/remote.html">remote</a> repository, referenced as <code>origin</code>.</p>
 <p>Both the local repository contains the <em>&quot;Initial commit&quot;</em> in the <code>[master]</code> branch.</p>
 <pre><code>
@@ -317,9 +346,9 @@ o &quot;Initial commit&quot; [master][origin/master]     o &quot;Initial commit&
 <blockquote>
 <p>Please note fetching does not update your local repository with the remote changes. You have to <a href="./pull.html">pull</a> to sync!</p>
 </blockquote>
-<a class="header" href="#merge" id="merge"><h2>Merge</h2></a>
+<h2><a class="header" href="#merge" id="merge">Merge</a></h2>
 <p>The act of promotion of changes by merging them with the existing state.</p>
-<a class="header" href="#example-2" id="example-2"><h3>Example</h3></a>
+<h3><a class="header" href="#example-2" id="example-2">Example</a></h3>
 <p>Imagine you have <code>master</code> branch and two branches <code>feature1</code> and <code>feature2</code>.</p>
 <p>Both branches were created from <code>master</code> at the same time and do not contain any changes yet.</p>
 <p>Because branch is basically a pointer to commit, the initial state looks like this:</p>
@@ -341,9 +370,9 @@ o &quot;New feature 1&quot;  [master] [feature1]
 o &quot;Initial commit&quot; [feature2]
 
 </code></pre>
-<a class="header" href="#rebase" id="rebase"><h2>Rebase</h2></a>
+<h2><a class="header" href="#rebase" id="rebase">Rebase</a></h2>
 <p>The act of changing the base commit.</p>
-<a class="header" href="#example-3" id="example-3"><h3>Example</h3></a>
+<h3><a class="header" href="#example-3" id="example-3">Example</a></h3>
 <p>Let's return to our example from <a href="./merge.html">Merge</a> chapter.</p>
 <p>There were <code>master</code>, <code>feature1</code> and <code>feature2</code> branches originally, then <code>feature1</code> got modified and then merged to <code>master</code>, making the whole situation look like this::</p>
 <pre><code>
@@ -379,9 +408,9 @@ o &quot;Initial commit&quot;
 <blockquote>
 <p>If we would try to merge <code>feature2</code> without rebase, we would revert changes in <code>master</code>!</p>
 </blockquote>
-<a class="header" href="#pull" id="pull"><h2>Pull</h2></a>
+<h2><a class="header" href="#pull" id="pull">Pull</a></h2>
 <p>The process of getting changes from your <a href="./remote.html">remote</a> repository to the local one.</p>
-<a class="header" href="#example-4" id="example-4"><h3>Example</h3></a>
+<h3><a class="header" href="#example-4" id="example-4">Example</a></h3>
 <p>Imagine you have 1 local and 1 remote repository, both with <code>[master]</code> on initial commit.</p>
 <p>Then, somebody updates the remote repository with <code>[feature1]</code> branch.</p>
 <p>In order to retrieve the branch, you first need to make your local repository aware of the branch via fetch:</p>
@@ -403,9 +432,9 @@ o &quot;Initial commit&quot; [master][origin/master]     o &quot;Initial commit&
 <blockquote>
 <p>Always fetch before you pull!</p>
 </blockquote>
-<a class="header" href="#pull-request" id="pull-request"><h2>Pull request</h2></a>
+<h2><a class="header" href="#pull-request" id="pull-request">Pull request</a></h2>
 <p>Request for a change, based on an existing branch.</p>
-<a class="header" href="#meaning" id="meaning"><h3>Meaning</h3></a>
+<h3><a class="header" href="#meaning" id="meaning">Meaning</a></h3>
 <p>While on your local repository, you can always merge one branch to another, when working on a project with somebody else, you should never do it directly, but via <em>pull request</em> instead.</p>
 <p>Doing <em>pull request</em> will allow <em>you</em> to specify where you want to integrate your change, while it will allow <em>the reviewer</em> to check the change, possibly propose changes and then <em>the reviewer</em> can do the merge.</p>
 <p>While this dance around the integration might seem redundant, it has many benefits:</p>
@@ -437,6 +466,14 @@ o &quot;Initial commit&quot; [master][origin/master]     o &quot;Initial commit&
 
         
 
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
         

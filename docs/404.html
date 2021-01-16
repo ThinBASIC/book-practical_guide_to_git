@@ -3,8 +3,10 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Repository - Practical guide to Git</title>
+        <title></title>
         
+        
+        <base href="/">
         
 
 
@@ -95,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="core_concepts.html"><strong aria-hidden="true">2.</strong> Core concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="repository.html" class="active"><strong aria-hidden="true">2.1.</strong> Repository</a></li><li class="chapter-item expanded "><a href="fork.html"><strong aria-hidden="true">2.2.</strong> Fork</a></li><li class="chapter-item expanded "><a href="remote.html"><strong aria-hidden="true">2.3.</strong> Remote</a></li><li class="chapter-item expanded "><a href="commit.html"><strong aria-hidden="true">2.4.</strong> Commit</a></li><li class="chapter-item expanded "><a href="branch.html"><strong aria-hidden="true">2.5.</strong> Branch</a></li><li class="chapter-item expanded "><a href="push.html"><strong aria-hidden="true">2.6.</strong> Push</a></li><li class="chapter-item expanded "><a href="fetch.html"><strong aria-hidden="true">2.7.</strong> Fetch</a></li><li class="chapter-item expanded "><a href="merge.html"><strong aria-hidden="true">2.8.</strong> Merge</a></li><li class="chapter-item expanded "><a href="rebase.html"><strong aria-hidden="true">2.9.</strong> Rebase</a></li><li class="chapter-item expanded "><a href="pull.html"><strong aria-hidden="true">2.10.</strong> Pull</a></li><li class="chapter-item expanded "><a href="pull_request.html"><strong aria-hidden="true">2.11.</strong> Pull request</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="core_concepts.html"><strong aria-hidden="true">2.</strong> Core concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="repository.html"><strong aria-hidden="true">2.1.</strong> Repository</a></li><li class="chapter-item expanded "><a href="fork.html"><strong aria-hidden="true">2.2.</strong> Fork</a></li><li class="chapter-item expanded "><a href="remote.html"><strong aria-hidden="true">2.3.</strong> Remote</a></li><li class="chapter-item expanded "><a href="commit.html"><strong aria-hidden="true">2.4.</strong> Commit</a></li><li class="chapter-item expanded "><a href="branch.html"><strong aria-hidden="true">2.5.</strong> Branch</a></li><li class="chapter-item expanded "><a href="push.html"><strong aria-hidden="true">2.6.</strong> Push</a></li><li class="chapter-item expanded "><a href="fetch.html"><strong aria-hidden="true">2.7.</strong> Fetch</a></li><li class="chapter-item expanded "><a href="merge.html"><strong aria-hidden="true">2.8.</strong> Merge</a></li><li class="chapter-item expanded "><a href="rebase.html"><strong aria-hidden="true">2.9.</strong> Rebase</a></li><li class="chapter-item expanded "><a href="pull.html"><strong aria-hidden="true">2.10.</strong> Pull</a></li><li class="chapter-item expanded "><a href="pull_request.html"><strong aria-hidden="true">2.11.</strong> Pull request</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -163,48 +165,15 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#repository" id="repository">Repository</a></h2>
-<p>Git repository is a directory, containing your project or its subpart.</p>
-<h3><a class="header" href="#scope" id="scope">Scope</a></h3>
-<p>A repository should be used for a single project, or better, its smallest functional part.</p>
-<p>To give a specific example - thinBasic consists of an interpreter, many modules, thinAir integrated development environment, and help file.</p>
-<p>While one could be tempted to have it all in a single repository, it would have the following issues:</p>
-<ul>
-<li>the repository size would grow bigger at a faster pace compared to separate repositories</li>
-<li>when you would need to revert a change in the interpreter, you would go back in time also for other components</li>
-</ul>
-<p>In this particular case, the project should be split into multiple repositories this way:</p>
-<ul>
-<li>interpreter</li>
-<li>one repository for each module</li>
-<li>thinAir</li>
-<li>help file</li>
-</ul>
-<h3><a class="header" href="#system-files" id="system-files">System files</a></h3>
-<p>Compared to a standard system directory, a repository contains:</p>
-<ul>
-<li>hidden <code>.git</code> directory, which is created by Git and contains the history of changes of your project</li>
-<li>git configuration files, if needed</li>
-</ul>
-<p>A repository should also contain readme, license and adhere to some normalized structure. This will be discussed in the practical part.</p>
-<h3><a class="header" href="#technical-restrictions" id="technical-restrictions">Technical restrictions</a></h3>
-<p>The Git repositories are optimized to work with text data, which makes them <strong>ideal for storing source code</strong>. Git allows to display changes between any two revisions of text data and store the history of changes efficiently.</p>
-<p>While it is technically possible to add <strong>binary files</strong> to the repository, such as EXE/DLL files, PDF documents, and other common file formats, please be aware of the fact that this <strong>might significantly increase the size of your repository</strong>. The history of text files is stored via difference between two versions, however, each change in the binary file is stored as a new copy.</p>
+                        <h1><a class="header" href="#document-not-found-404" id="document-not-found-404">Document not found (404)</a></h1>
+<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="core_concepts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
 
-                        
-                            <a rel="next" href="fork.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -214,15 +183,7 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="core_concepts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
 
-                
-                    <a rel="next" href="fork.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
